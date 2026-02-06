@@ -1,0 +1,28 @@
+// Service: AS7265x Custom Service
+// UUID: 0000FF00-0000-1000-8000-00805F9B34FB
+PRIMARY_SERVICE, 0000FF00-0000-1000-8000-00805F9B34FB
+
+// Characteristic: Main Sensor (NIR: 610, 680, 730, 760, 810, 860nm)
+// UUID: 0000FF01...
+// Data: 24 Bytes (6 x IEEE 754 Floats)
+CHARACTERISTIC, 0000FF01-0000-1000-8000-00805F9B34FB, NOTIFY, "Spectral NIR Raw"
+
+// Characteristic: Secondary 1 (VIS: 560, 585, 645, 705, 900, 940nm)
+// UUID: 0000FF02...
+// Data: 24 Bytes (6 x IEEE 754 Floats)
+CHARACTERISTIC, 0000FF02-0000-1000-8000-00805F9B34FB, NOTIFY, "Spectral VIS Raw"
+
+// Characteristic: Secondary 2 (UV: 410, 435, 460, 485, 510, 535nm)
+// UUID: 0000FF03...
+// Data: 24 Bytes (6 x IEEE 754 Floats)
+CHARACTERISTIC, 0000FF03-0000-1000-8000-00805F9B34FB, NOTIFY, "Spectral UV Raw"
+
+// Characteristic: Control (Write without response)
+// UUID: 0000FF04-0000-1000-8000-00805F9B34FB
+// Protocol: [Command Byte] [Value Byte]
+// Cmd 0x01: Gain (0-3)
+// Cmd 0x02: Integration Time (1-255)
+// Cmd 0x03: Main LED (NIR) (0=Off, 1=On)
+// Cmd 0x04: Secondary 1 LED (VIS) (0=Off, 1=On)
+// Cmd 0x05: Secondary 2 LED (UV)  (0=Off, 1=On)
+CHARACTERISTIC, 0000FF04-0000-1000-8000-00805F9B34FB, WRITE_WITHOUT_RESPONSE, "Sensor Control"
